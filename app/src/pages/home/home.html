@@ -5,11 +5,15 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let music of allMusic">
+  <!-- <ion-card *ngFor="let music of allMusic" (click)="goToMusicDetailPage(music)">
     <img [src]="music.image">
     <ion-card-content>
       <ion-card-title>{{music.name}}</ion-card-title>
     </ion-card-content>
 
+  </ion-card> -->
+  <ion-card *ngFor="let music of allMusic" (click)="goToMusicDetailPage(music)">
+    <img [src]="music.image" />
+    <div class="card-title">{{music.name}}</div>
   </ion-card>
 </ion-content>

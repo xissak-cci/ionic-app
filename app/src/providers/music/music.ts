@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import "rxjs/add/operator/map";
@@ -12,12 +12,11 @@ const API: string = "http://orangevalleycaa.org/api/music";
 @Injectable()
 export class MusicProvider {
 
-  constructor(public http: HttpClient) {
+  constructor(public http: Http) {
     console.log('Hello MusicProvider Provider');
   }
 
   getMusic() {
-    return this.http.get(API)
-      .map((response: Response) => response)
+    return this.http.get(API).map(response => response.json());
   }
 }

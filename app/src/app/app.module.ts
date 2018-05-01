@@ -7,6 +7,8 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { MusicDetailPage } from '../pages/music-detail/music-detail';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +22,8 @@ import { MusicProvider } from '../providers/music/music';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    MusicDetailPage
   ],
   imports: [
     HttpClientModule,
@@ -34,7 +37,8 @@ import { MusicProvider } from '../providers/music/music';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    MusicDetailPage
   ],
   providers: [
     // HttpClientModule,

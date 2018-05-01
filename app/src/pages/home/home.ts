@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 // import "rxjs/add/operator/map";
 import { NavController, LoadingController } from 'ionic-angular';
 import { MusicProvider } from '../../providers/music/music';
+import { MusicDetailPage } from '../music-detail/music-detail'
 
 @Component({
   selector: 'page-home',
@@ -23,6 +24,12 @@ export class HomePage {
     this.musicProvider.getMusic().subscribe((musicList) => {
       allMusicLoadingController.dismiss();
       this.allMusic = musicList
+    });
+  }
+
+  goToMusicDetailPage(music) {
+    this.navCtrl.push(MusicDetailPage, {
+      musicDetails: music
     });
   }
 }
