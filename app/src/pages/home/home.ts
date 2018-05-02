@@ -3,7 +3,8 @@ import { Component } from '@angular/core';
 // import "rxjs/add/operator/map";
 import { NavController, LoadingController } from 'ionic-angular';
 import { MusicProvider } from '../../providers/music/music';
-import { MusicDetailPage } from '../music-detail/music-detail'
+import { MusicDetailPage } from '../music-detail/music-detail';
+import { FavouritePage } from '../favourite/favourite';
 
 @Component({
   selector: 'page-home',
@@ -31,5 +32,9 @@ export class HomePage {
     this.navCtrl.push(MusicDetailPage, {
       musicDetails: music
     });
+  }
+
+  goToFavouritePage() {
+    this.navCtrl.push(FavouritePage);
   }
 }

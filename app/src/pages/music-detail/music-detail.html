@@ -8,6 +8,11 @@
 
   <ion-navbar>
     <ion-title>{{musicDetails.name}}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="goToFavouritePage()">
+        <ion-icon name="ios-heart-outline"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -55,6 +60,11 @@
           {{musicDetails.created_by}}
         </ion-badge>
       </ion-item>
+
     </ion-card-content>
+
+  </ion-card>
+  <ion-card>
+    <button ion-button clear full (click)="addToFavourite($event)">Add to Favourite </button>
   </ion-card>
 </ion-content>

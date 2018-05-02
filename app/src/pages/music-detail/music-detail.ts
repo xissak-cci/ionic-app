@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { MusicProvider } from '../../providers/music/music';
+import { FavouritePage } from '../favourite/favourite';
 /**
  * Generated class for the MusicDetailPage page.
  *
@@ -16,7 +17,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class MusicDetailPage {
   public musicDetails = {};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private toastController: ToastController, private musicProvider: MusicProvider, public navCtrl: NavController, public navParams: NavParams) {
     this.musicDetails = this.navParams.get("musicDetails");
   }
 
@@ -25,5 +26,18 @@ export class MusicDetailPage {
     //this.musicDetails = this.navParams.get("musicDetails");
     // console.log(this.musicDetails)
   }
+
+  addToFavourite(event) {
+    this.musicProvider.addToFavourites(this.musicDetails);
+    let addToFavouriteToast = this.toastController.create({
+      message: 'Added to Favourite',
+      duration: 2000
+    });
+    addToFavouriteToast.present();
+  }
+  goToFavouritePage() {
+    this.navCtrl.push(FavouritePage);
+  }
+
 
 }
