@@ -12,8 +12,11 @@ import { FavouritePage } from '../favourite/favourite';
 })
 export class HomePage {
   public allMusic = [];
-
+  public searchedMusic = [];
+  public searchMusic: string = '';
+  public isMusicSearched: boolean = false;
   constructor(private musicProvider: MusicProvider, private loadingController: LoadingController, public navCtrl: NavController) {
+
 
   }
 
@@ -36,5 +39,13 @@ export class HomePage {
 
   goToFavouritePage() {
     this.navCtrl.push(FavouritePage);
+  }
+
+  setFilteredMusic() {
+    this.isMusicSearched = true;
+    this.searchedMusic = this.allMusic.filter((item) => {
+      return item.name.toLowerCase().indexOf(this.searchMusic.toLowerCase()) > -1;
+    })
+
   }
 }
