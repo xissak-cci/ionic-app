@@ -11,9 +11,11 @@ import { MusicDetailPage } from '../pages/music-detail/music-detail';
 import { FavouritePage } from '../pages/favourite/favourite';
 
 
+
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { HttpModule } from '@angular/http';
+import { Media } from '@ionic-native/media';
 import { HttpClientModule } from '@angular/common/http';
 import { MusicProvider } from '../providers/music/music';
 
@@ -25,7 +27,7 @@ import { MusicProvider } from '../providers/music/music';
     HomePage,
     TabsPage,
     MusicDetailPage,
-    FavouritePage
+    FavouritePage,
   ],
   imports: [
     HttpClientModule,
@@ -45,6 +47,7 @@ import { MusicProvider } from '../providers/music/music';
   ],
   providers: [
     // HttpClientModule,
+    Media,
     StatusBar,
     SplashScreen,
     { provide: ErrorHandler, useClass: IonicErrorHandler },

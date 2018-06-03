@@ -29,11 +29,33 @@
         <div>2 of 2</div>
       </ion-col>
     </ion-row> -->
-    <ion-buttons start>
-      <button ion-button icon-only clear full>
+
+    <ion-buttons start *ngIf="!isMusicPlayed">
+      <button ion-button icon-only clear full (click)="playMusic()">
         <ion-icon ios="ios-play" md="md-play"></ion-icon>
       </button>
     </ion-buttons>
+    <ion-grid *ngIf="isMusicPlayed">
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-only clear full (click)="stopMusic()">
+            <ion-icon name="square"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col *ngIf="isMusicInPause">
+          <button ion-button icon-only clear full (click)="playMusic()">
+            <ion-icon name="play"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col *ngIf="!isMusicInPause">
+          <button ion-button icon-only clear full (click)="pauseMusic()">
+            <ion-icon name="pause"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
   </ion-card>
   <ion-card>
     <ion-card-header>
